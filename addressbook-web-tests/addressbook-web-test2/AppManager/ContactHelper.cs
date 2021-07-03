@@ -26,7 +26,6 @@ namespace WebAddressbookTests
 
         public ContactHelper Modify(int v, ContactData newContact)
         {
-            manager.Navigator.GoToAddNew();
             SelectContact();
             InitContactModification();
             FillContactForm(new ContactData(newContact.Firstname, newContact.Lastname));
