@@ -14,6 +14,7 @@ namespace WebAddressbookTests
     {
         protected ApplicationManager manager;
         protected IWebDriver driver;
+        protected bool acceptNextAlert = true;
 
         public HelperBase(ApplicationManager manager)
         {
