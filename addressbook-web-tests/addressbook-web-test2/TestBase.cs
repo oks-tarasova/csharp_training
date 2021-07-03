@@ -86,6 +86,28 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.Name("delete")).Click();
         }
+        protected void GoToAddNew()
+        {
+            driver.FindElement(By.LinkText("add new")).Click();
+        }
+        protected void FillContactForm(ContactData contact)
+        {
+            driver.FindElement(By.Name("firstname")).Click();
+            driver.FindElement(By.Name("firstname")).Clear();
+            driver.FindElement(By.Name("firstname")).SendKeys(contact.Firstname);
+            driver.FindElement(By.Name("lastname")).Click();
+            driver.FindElement(By.Name("lastname")).Clear();
+            driver.FindElement(By.Name("lastname")).SendKeys(contact.Lastname);
+        }
+        protected void SubmitContactCreation()
+        {
+            driver.FindElement(By.XPath("//div[@id='content']/form/input[21]")).Click();
+
+        }
+        protected void ReturnToHomePage()
+        {
+            driver.FindElement(By.LinkText("home page")).Click();
+        }
         protected void Logout()
         {
             driver.FindElement(By.LinkText("Logout")).Click();
