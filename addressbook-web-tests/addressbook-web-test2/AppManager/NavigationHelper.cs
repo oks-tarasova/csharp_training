@@ -11,7 +11,7 @@ namespace WebAddressbookTests
 {
    public class NavigationHelper : HelperBase
     {
-        public NavigationHelper(IWebDriver driver): base (driver)
+        public NavigationHelper(ApplicationManager manager): base (manager)
         {
         }
         public void GoToHomePage()
@@ -26,6 +26,10 @@ namespace WebAddressbookTests
         public void GoToAddNew()
         {
             driver.FindElement(By.LinkText("add new")).Click();
+        }
+        public void Logout()
+        {
+            driver.FindElement(By.LinkText("Logout")).Click();
         }
     }
 }
