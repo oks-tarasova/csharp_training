@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AccountData.cs" />
+    <Compile Include="Tests\TestSuiteFixture.cs" />
     <Compile Include="Tests\AddNewContact.cs" />
     <Compile Include="AppManager\ApplicationManager.cs" />
     <Compile Include="Model\ContactData.cs" />
