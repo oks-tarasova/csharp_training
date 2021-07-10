@@ -70,9 +70,14 @@ namespace WebAddressbookTests
             return this;
         }
         public GroupHelper SelectGroup(int index)
-        {
-            driver.FindElement(By.XPath("//div[@id='content']/form/span[" + index + "]/input")).Click();
-            return this;
+        { 
+            if (IsElementPresent(By.Name("selected[]")))
+            {
+                driver.FindElement(By.XPath("//div[@id='content']/form/span[" + index + "]/input")).Click();
+                return this;
+            }
+            return Create(new GroupData("names"));
+
         }
         public GroupHelper RemoveGroup()
         {

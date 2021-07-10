@@ -62,8 +62,12 @@ namespace WebAddressbookTests
         }
         public ContactHelper SelectContact()
         {
-            driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[3]/td/input")).Click();
-            return this;
+            if (IsElementPresent(By.Name("selected[]")))
+            {
+                driver.FindElement(By.Name("selected[]")).Click();
+                return this;
+            }
+            return Create(new ContactData("new", "contact"));
         }
         public ContactHelper RemoveContact()
         {
@@ -78,7 +82,7 @@ namespace WebAddressbookTests
         }
         public ContactHelper InitContactModification()
         {
-            driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img")).Click();
+            driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
             return this;
         }
         public ContactHelper SubmitContactModification()
