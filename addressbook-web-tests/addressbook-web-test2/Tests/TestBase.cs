@@ -16,7 +16,7 @@ namespace WebAddressbookTests
         protected IWebDriver driver;
 
         [SetUp]
-        public void SetupTest()
+        public void SetupApplicationManger()
         {
             app = ApplicationManager.GetInstance();
 
