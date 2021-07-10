@@ -11,20 +11,38 @@ namespace WebAddressbookTests
 {
    public class NavigationHelper : HelperBase
     {
-        public NavigationHelper(ApplicationManager manager): base (manager)
+        private string baseURL;
+
+        public NavigationHelper(ApplicationManager manager, string baseURL): base (manager)
         {
+            this.baseURL = baseURL;
         }
         public void GoToHomePage()
         {
-            driver.Navigate().GoToUrl("http://localhost/addressbook");
+            if (driver.Url == baseURL + "http://localhost/addressbook")
+            {
+                return;
+            }
+                driver.Navigate().GoToUrl("http://localhost/addressbook");
         }
 
         public void GoToGroupsPage()
         {
+            if (driver.Url == baseURL + "/addressbook/group.php" 
+                && IsElementPresent(By.Name("new")))
+            {
+                return;
+            }
             driver.FindElement(By.LinkText("groups")).Click();
         }
         public void GoToAddNew()
-        {
+        { 
+            if (driver.Url == baseURL + "/addressbook/edit.php"
+                && IsElementPresent(By.Name("submit")))
+            {
+                return;
+            }
+
             driver.FindElement(By.LinkText("add new")).Click();
         }
         public void Logout()
