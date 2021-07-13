@@ -61,14 +61,11 @@ namespace WebAddressbookTests
             return this;
         }
         public ContactHelper SelectContact()
-        {
-            if (IsElementPresent(By.Name("selected[]")))
             {
                 driver.FindElement(By.Name("selected[]")).Click();
                 return this;
             }
-            return Create(new ContactData("new", "contact"));
-        }
+
         public ContactHelper RemoveContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
@@ -89,6 +86,10 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.Name("update")).Click();
             return this;
+        }
+        public bool IsAnyContactExist()
+        {
+            return IsElementPresent(By.Name("selected[]"));
         }
     }
 }

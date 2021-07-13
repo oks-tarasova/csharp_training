@@ -70,15 +70,11 @@ namespace WebAddressbookTests
             return this;
         }
         public GroupHelper SelectGroup(int index)
-        { 
-            if (IsElementPresent(By.Name("selected[]")))
             {
                 driver.FindElement(By.XPath("//div[@id='content']/form/span[" + index + "]/input")).Click();
                 return this;
             }
-            return Create(new GroupData("names"));
 
-        }
         public GroupHelper RemoveGroup()
         {
             driver.FindElement(By.Name("delete")).Click();
@@ -94,6 +90,10 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.Name("edit")).Click();
             return this;
+        }
+        public bool IsAnyGroupExist()
+        {
+            return IsElementPresent(By.Name("selected[]"));
         }
     }
 }

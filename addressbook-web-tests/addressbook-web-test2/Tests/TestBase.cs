@@ -14,6 +14,7 @@ namespace WebAddressbookTests
     {
         protected ApplicationManager app;
         protected IWebDriver driver;
+        protected HelperBase helper;
 
         [SetUp]
         public void SetupApplicationManger()
