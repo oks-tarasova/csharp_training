@@ -20,16 +20,11 @@ namespace WebAddressbookTests
             newData.Footer = "there";
 
             app.Navigator.GoToGroupsPage();
-            if (app.Groups.IsAnyGroupExist())
+            if (!app.Groups.IsAnyGroupExist())
             {
-
-                app.Groups.Modify(1, newData);
-                return;
+                app.Groups.Create(new GroupData("names"));
             }
-            app.Groups.Create(new GroupData("names"));
             app.Groups.Modify(1, newData);
-
-
         }
     }
 }

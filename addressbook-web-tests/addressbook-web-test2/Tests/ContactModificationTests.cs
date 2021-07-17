@@ -17,12 +17,10 @@ namespace WebAddressbookTests
             ContactData newContact = new ContactData("Masahiro", "Sibata"); 
 
             app.Navigator.GoToHomePage();
-            if (app.Contacts.IsAnyContactExist())
+            if (!app.Contacts.IsAnyContactExist())
             {
-                app.Contacts.Modify(1, newContact);
-                return;
+                app.Contacts.Create(new ContactData("new", "contact"));
             }
-            app.Contacts.Create(new ContactData("new", "contact"));
             app.Contacts.Modify(1, newContact);
 
         }
