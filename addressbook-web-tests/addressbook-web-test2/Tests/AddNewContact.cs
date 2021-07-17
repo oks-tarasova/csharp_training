@@ -6,6 +6,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
+using System.Collections.Generic;
 
 namespace WebAddressbookTests
 {
@@ -16,6 +17,7 @@ namespace WebAddressbookTests
         public void TheAddNewContactTest()
         {
             ContactData contact = new ContactData("Erast", "Fandorin");
+
             app.Contacts.Create(contact);
         }
         [Test]
