@@ -102,12 +102,11 @@ namespace WebAddressbookTests
         {
                 List<ContactData> contacts = new List<ContactData>();
                 manager.Navigator.GoToHomePage();
-                ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("tr.entry"));
+                IList<IWebElement> elements = driver.FindElements(By.Name("entry"));
                 foreach (IWebElement element in elements)
             {
                 IList<IWebElement> cells = element.FindElements(By.TagName("td"));
-                contacts.Add(new ContactData (cells[1].Text, cells[2].Text));
-
+                contacts.Add(new ContactData (cells[2].Text, cells[3].Text));
             }
             return contacts;
         }

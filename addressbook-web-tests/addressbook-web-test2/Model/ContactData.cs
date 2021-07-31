@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-     public class ContactData // : IEquatable<ContactData>,IComparable<ContactData>
+     public class ContactData: IEquatable<ContactData>, IComparable<ContactData>
 
     {
         private string firstname;
@@ -40,36 +40,45 @@ namespace WebAddressbookTests
             this.lastname = lastname;
         }
 
-       //public bool Equals(ContactData other)
-       // {
-       //     if (Object.ReferenceEquals(other, null))
-       //     {
-       //         return false;
-       //     }
-       //     if (Object.ReferenceEquals(this, other))
-       //     {
-       //     return true;
-       // } 
+        public bool Equals(ContactData other)
+        {
+            if (Object.ReferenceEquals(other, null))
+            {
+                return false;
+            }
+            if (Object.ReferenceEquals(firstname, other))
+            {
+                return true;
+            }
+            if (Object.ReferenceEquals(lastname, other))
+            {
+                return true;
+            }
+             return Firstname == other.Firstname && Lastname == other.Lastname;
+        }
 
-        //    return Firstname == other.Firstname && Lastname == other.Lastname;
-        //}
-        //public override int GetHashCode()
-        //{
-        //    return Firstname.GetHashCode();
-        //}
-        //public override string ToString()
-        //{
-        //    return "firstname=" + Firstname;
-        //}
+       public int GetHashCode(string firstname, string lastname)
+       {
+            return GetHashCode(firstname, lastname);
+       }
 
-        //public int CompareTo(ContactData other)
-        //{
-        //    if (Object.ReferenceEquals(other, null))
-        //    {
-        //        return 1;
-        //    }
-        //    return Firstname.CompareTo(other.Firstname);
-        //}
+        public override string ToString()
+        {
+            return "firstname="+ Firstname;
+        }
+
+        public int CompareTo(ContactData other)
+        {
+            if (Object.ReferenceEquals(other, null))
+            {
+                return 1;
+            }
+            if (Object.ReferenceEquals(lastname, other.Lastname))
+            {
+                return Firstname.CompareTo(other.Firstname);
+            }
+            return Lastname.CompareTo(other.Lastname);
+        }
 
 
         public string Firstname
