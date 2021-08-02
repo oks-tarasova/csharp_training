@@ -46,11 +46,11 @@ namespace WebAddressbookTests
             {
                 return false;
             }
-            if (Object.ReferenceEquals(firstname, other))
+            if (Object.ReferenceEquals(firstname, other.firstname))
             {
                 return true;
             }
-            if (Object.ReferenceEquals(lastname, other))
+            if (Object.ReferenceEquals(lastname, other.lastname))
             {
                 return true;
             }
@@ -73,11 +73,11 @@ namespace WebAddressbookTests
             {
                 return 1;
             }
-            if (Object.ReferenceEquals(lastname, other.Lastname))
+            if (lastname.CompareTo(other.lastname) == 0)
             {
-                return Firstname.CompareTo(other.Firstname);
+                return firstname.CompareTo(other.firstname);
             }
-            return Lastname.CompareTo(other.Lastname);
+            return lastname.CompareTo(other.lastname);
         }
 
 
