@@ -106,7 +106,7 @@ namespace WebAddressbookTests
                 foreach (IWebElement element in elements)
             {
                 IList<IWebElement> cells = element.FindElements(By.TagName("td"));
-                contacts.Add(new ContactData (cells[2].Text, cells[3].Text));
+                contacts.Add(new ContactData (cells[2].Text, cells[1].Text));
             }
             return contacts;
         }
