@@ -100,21 +100,27 @@ namespace WebAddressbookTests
 
         public List<ContactData> GetContactList()
         {
-                List<ContactData> contacts = new List<ContactData>();
+            if (contactCache == null)
+            {
+                contactCache = new List<ContactData>();
                 manager.Navigator.GoToHomePage();
                 IList<IWebElement> elements = driver.FindElements(By.Name("entry"));
                 foreach (IWebElement element in elements)
-            {
-                IList<IWebElement> cells = element.FindElements(By.TagName("td"));
-                contacts.Add(new ContactData (cells[2].Text, cells[1].Text));
-            }
-            return contacts;
+                {
+                    
+                    IList<IWebElement> cells = element.FindElements(By.TagName("td"));
+                    contactCache.Add(new ContactData(cells[2].Text, cells[1].Text) {
+                        Id = element.FindElement(By.TagName("input")).GetAttribute("value")
+                    });
+                }
+            }        
+            return new List<ContactData>(contactCache);
         }
 
 
         internal int GetContactCount()
         {
-            return driver.FindElements(By.Name("selected[]")).Count;
+            return driver.FindElements(By.Name("entry")).Count;
         }
     }
 }
