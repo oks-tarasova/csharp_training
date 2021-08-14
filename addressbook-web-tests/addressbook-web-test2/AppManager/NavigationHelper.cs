@@ -49,5 +49,16 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.LinkText("Logout")).Click();
         }
+
+        public void GoToDetailsPage(int index)
+        {
+            if (driver.Url != baseURL + "http://localhost/addressbook")
+            {
+                driver.Navigate().GoToUrl("http://localhost/addressbook");
+            }
+            driver.FindElements(By.Name("entry"))[index]
+                .FindElements(By.TagName("td"))[6]
+                .FindElement(By.TagName("a")).Click();
+        }
     }
 }

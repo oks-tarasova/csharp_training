@@ -31,6 +31,7 @@ namespace WebAddressbookTests
         private string allPhones;
         private string allEmails;
 
+
         public ContactData(string firstname, string lastname)
         {
             Firstname = firstname;
@@ -133,6 +134,24 @@ namespace WebAddressbookTests
             set
             {
                 allEmails = value;
+            }
+        }
+        public string ContactDetails
+        {
+            get
+            {
+                if (ContactDetails != null)
+                {
+                    return ContactDetails;
+                }
+                else
+                {
+                    return Firstname + Lastname + AllPhones + AllEmails;
+                }
+            }
+            set
+            {
+                ContactDetails = value;
             }
         }
 

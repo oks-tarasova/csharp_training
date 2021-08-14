@@ -35,6 +35,8 @@ namespace WebAddressbookTests
             return this;
 
         }
+
+
         public ContactHelper Remove()
         {
             manager.Navigator.GoToHomePage();
@@ -124,7 +126,7 @@ namespace WebAddressbookTests
             return driver.FindElements(By.Name("entry")).Count;
         }
 
-        public ContactData GetContactInformationFromEditForm(int index)
+        public ContactData GetContactInformationFromTable(int index)
         {
             manager.Navigator.GoToHomePage();
             IList<IWebElement> cells = driver.FindElements(By.Name("entry"))[index]
@@ -143,7 +145,7 @@ namespace WebAddressbookTests
             };
         }
 
-        public ContactData GetContactInformationFromTable(int index)
+        public ContactData GetContactInformationFromEditForm(int index)
         {
             manager.Navigator.GoToHomePage();
             InitContactModification(0);
@@ -176,5 +178,16 @@ namespace WebAddressbookTests
             Match m = new Regex(@"\d+").Match(text);
             return Int32.Parse(m.Value);
         }
+
+        public ContactData GetContactInformationFromDetails() 
+        {
+            manager.Navigator.GoToHomePage();
+            manager.Navigator.GoToDetailsPage(0);
+            string contactDetails = driver.FindElement(By.Name("content")).Text;
+            return 
+                // если метод должен возвращать строку, то наверное у него должен быть тип string? 
+                
+        }
+
     }
 }
