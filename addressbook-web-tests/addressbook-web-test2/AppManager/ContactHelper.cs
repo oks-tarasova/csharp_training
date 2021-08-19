@@ -179,15 +179,20 @@ namespace WebAddressbookTests
             return Int32.Parse(m.Value);
         }
 
-        public ContactData GetContactInformationFromDetails() 
+        public string GetContactInformationFromDetails() 
         {
             manager.Navigator.GoToHomePage();
             manager.Navigator.GoToDetailsPage(0);
             string contactDetails = driver.FindElement(By.Name("content")).Text;
-            return 
-                // если метод должен возвращать строку, то наверное у него должен быть тип string? 
-                
+            return contactDetails;
         }
+        public string GetContactInformationFromEdit()
+        {
+            manager.Navigator.GoToHomePage();
+            InitContactModification(0);
+            string editDetails = EditDetails;
+            return editDetails;
 
+        }
     }
 }

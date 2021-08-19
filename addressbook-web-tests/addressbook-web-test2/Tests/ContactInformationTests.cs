@@ -32,10 +32,10 @@ namespace WebAddressbookTests
 
         public void TestCurrentContactInformation()
         {
-            ContactData fromDetails = app.Contacts.GetContactInformationFromDetails();
-            ContactData fromForm = app.Contacts.GetContactInformationFromEditForm(0);
+            string fromDetails = app.Contacts.GetContactInformationFromDetails();
+            string fromForm = app.Contacts.GetContactInformationFromEdit();
 
-            Assert.AreEqual(fromDetails.contactDetails, fromForm.contactDetails);
+            Assert.AreEqual(fromDetails, fromForm);
 
         }
 
