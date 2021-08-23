@@ -33,7 +33,7 @@ namespace WebAddressbookTests
         public void TestCurrentContactInformation()
         {
             string fromDetails = app.Contacts.GetContactInformationFromDetails();
-            string fromForm = app.Contacts.GetContactInformationFromEdit();
+            ContactData fromForm = app.Contacts.GetContactInformationFromEditForm(0);
 
             Assert.AreEqual(fromDetails, fromForm);
 

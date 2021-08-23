@@ -138,24 +138,6 @@ namespace WebAddressbookTests
                 allEmails = value;
             }
         }
-        public string EditDetails
-        {
-            get
-            {
-                if (EditDetails != null)
-                {
-                    return EditDetails;
-                }
-                else
-                {
-                    return Firstname + Lastname + '\n' + AllPhones + '\n' + AllEmails + '\n';
-                }
-            }
-            set
-            {
-                EditDetails = value;
-            }
-        }
 
     }
 }

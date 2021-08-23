@@ -186,13 +186,5 @@ namespace WebAddressbookTests
             string contactDetails = driver.FindElement(By.Name("content")).Text;
             return contactDetails;
         }
-        public string GetContactInformationFromEdit()
-        {
-            manager.Navigator.GoToHomePage();
-            InitContactModification(0);
-            string editDetails = EditDetails;
-            return editDetails;
-
-        }
     }
 }
